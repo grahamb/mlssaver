@@ -15,6 +15,6 @@ var data = {
 };
 
 
-var url = "http://localhost:3000/form?" + $.param(data);
+var url = "http://icat-graham.its.sfu.ca:3000/form?" + $.param(data);
 
 window.open(url, 'Save Listing', 'scrollbars=1,status=0,resizable=0,location=0,toolbar=0,width=768,height=900');
