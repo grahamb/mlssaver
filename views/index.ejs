@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Saved Listings</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href='/stylesheets/bootstrap.min.css' />
+    <link rel="stylesheet" href='/stylesheets/bootstrap-theme.min.css' />
+  </head>
+  <body>
+    <h1>Saved Listings</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>Listing ID</td>
+                <td>Address</td>
+                <td>Price</td>
+                <td>Beds</td>
+                <td>Baths</td>
+                <td>Location (/10)</td>
+                <td>Size (/7)</td>
+                <td>Look (/5)</td>
+                <td>Yard (/4)</td>
+                <td>Kitchen (/5)</td>
+                <td>Affordability (/10)</td>
+                <td>Suite (/5)</td>
+                <td>Floors (/4)</td>
+                <td>Graham's Comments</td>
+                <td>Eryn's Comments</td>
+            </tr>
+        </thead>
+
+        <% listings.forEach(function(listing) { %>
+
+            <tr>
+                <td><a href="<%= listing.listing_url %>"><%= listing.listing_id %></a></td>
+                <td><a href="https://www.google.com/maps?q=<%= listing.address %>"><%= listing.address %></a></td>
+                <td><%= listing.price %></td>
+                <td><%= listing.bedrooms %></td>
+                <td><%= listing.bathrooms %></td>
+                <td><%= listing.rating_location %></td>
+                <td><%= listing.rating_size %></td>
+                <td><%= listing.rating_look %></td>
+                <td><%= listing.rating_yard %></td>
+                <td><%= listing.rating_kitchen %></td>
+                <td><%= listing.rating_affordability %></td>
+                <td><%= listing.rating_suite %></td>
+                <td><%= listing.rating_floors %></td>
+                <td><%= listing.comments_graham || '' %></td>
+                <td><%= listing.comments_eryn || '' %></td>
+                <td></td>
+                <td></td>
+            </tr>
+        <% }) %>
+
+    </table>
+
+  </body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ERROR!</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Oops</h1>
+    <% if (error.code === 11000) {  %>
+        <p>It looks like you've tried to save this property before.</p>
+    <% } else { %>
+        <p>Something went wrong. What do you expect for an hour's work? Here's the error:</p>
+        <pre><%= error.err %></pre>
+    <% } %>
+
+    <a href="#" onclick="window.close()">Close Window</a>
+  </body>
+</html>
