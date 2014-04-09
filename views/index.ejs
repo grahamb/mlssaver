@@ -12,6 +12,7 @@
     <table class="table table-striped">
         <thead>
             <tr>
+                <td></td>
                 <td>Listing ID</td>
                 <td>Address</td>
                 <td>Price</td>
@@ -33,6 +34,7 @@
         <% listings.forEach(function(listing) { %>
 
             <tr>
+                <td><img class="listing_image" src="<%= listing.image_url %>" alt=""></td>
                 <td><a href="<%= listing.listing_url %>"><%= listing.listing_id %></a></td>
                 <td><a href="https://www.google.com/maps?q=<%= listing.address %>"><%= listing.address %></a></td>
                 <td><%= listing.price %></td>
