@@ -31,6 +31,8 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/form', routes.form);
 app.get('/saved', routes.saved);
+app.get('/:id', routes.listing);
+
 
 app.post('/listing', routes.post_listing);
 
