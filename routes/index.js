@@ -20,7 +20,7 @@ exports.index = function(req, res){
 */
 
 exports.form = function(req, res){
-    res.render('form', { title: 'Save Listing', data: req.query });
+    res.render('form', { creating: true, title: 'Save Listing', data: req.query });
 };
 
 /*
@@ -44,5 +44,22 @@ exports.post_listing = function(req, res) {
             res.redirect('/saved');
         }
     });
-}
+};
 
+/*
+* GET listing.
+*/
+exports.listing = function(req, res) {
+    Listing.findOne({ listing_id: req.param('id') }, function(err, listing) {
+        if (err) {
+            res.render('error', { error: err });
+            console.log(err);
+        } else {
+            if (!listing) {
+                res.send(404);
+            } else {
+                res.render('form', { creating: false, title: 'View Listing', data: listing });
+            }
+        }
+    });
+};
