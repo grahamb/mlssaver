@@ -174,17 +174,34 @@
             </select>
           </div>
       </div>
+
+      <% if (creating === true) { %>
       <div class="form-group">
           <label for="comments_<%= data.person %>" class="col-sm-2 control-label">Comments</label>
           <div class="col-sm-10">
             <textarea name="comments_<%= data.person %>" class="form-control" id="comments_<%= data.person %>" rows="3"></textarea>
           </div>
       </div>
+      <% } else { %>
+      <div class="form-group">
+          <label for="comments_graham" class="col-sm-2 control-label">Graham's Comments</label>
+          <div class="col-sm-10">
+            <textarea name="comments_graham" class="form-control" id="comments_graham" rows="3"><%= data.comments_graham || '' %></textarea>
+          </div>
+      </div>
 
+      <div class="form-group">
+          <label for="comments_eryn" class="col-sm-2 control-label">Eryn's Comments</label>
+          <div class="col-sm-10">
+            <textarea name="comments_eryn" class="form-control" id="comments_eryn" rows="3"><%= data.comments_eryn || '' %></textarea>
+          </div>
+      </div>
+
+      <% } %>
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
           <button type="submit" class="btn btn-primary">Save</button>
-          <button type="button" class="btn btn-danger" onclick="window.close()">Cancel</button>
+          <% if (creating === true) { %><button type="button" class="btn btn-danger" onclick="window.close()">Cancel</button> <% } %>
         </div>
       </div>
     </form>
