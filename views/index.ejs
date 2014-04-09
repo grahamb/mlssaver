@@ -37,7 +37,7 @@
             <tr>
                 <td><img class="listing_image" src="<%= listing.image_url %>" alt=""></td>
                 <td><a href="<%= listing.listing_url %>"><%= listing.listing_id %></a></td>
-                <td><a href="https://www.google.com/maps?q=<%= listing.address %>"><%= listing.address %></a></td>
+                <td><a href="https://www.google.com/maps?q=<%= listing.address %>"><%= listing.address.split(',')[0] %></a></td>
                 <td><%= listing.price %></td>
                 <td><%= listing.bedrooms %></td>
                 <td><%= listing.bathrooms %></td>
