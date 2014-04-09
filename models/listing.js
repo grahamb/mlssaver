@@ -22,6 +22,10 @@ var ListingSchema = new Schema({
     date_added: Date
 });
 
+ListingSchema.virtual('total_score').get(function () {
+    return this.rating_location + this.rating_size + this.rating_look + this.rating_yard + this.rating_kitchen + this.rating_affordability + this.rating_suite + this.rating_floors;
+});
+
 mongoose.model('listings', ListingSchema);
 var ListingsModel = mongoose.model('listings');
 
