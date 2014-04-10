@@ -5,36 +5,40 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel="stylesheet" href='/stylesheets/bootstrap.min.css' />
     <link rel="stylesheet" href='/stylesheets/bootstrap-theme.min.css' />
+    <link rel="stylesheet" href="/stylesheets/bootstrap-sortable.css" />
+    <script src="/javascripts/jquery-1.11.0.min.js"></script>
+    <script src="/javascripts/bootstrap-sortable.js"></script>
   </head>
   <body>
     <h1>Saved Listings</h1>
 
-    <table class="table table-striped">
+    <table class="table table-striped sortable">
         <thead>
             <tr>
-                <td></td>
-                <td>Listing ID</td>
-                <td>Address</td>
-                <td>Price</td>
-                <td>Beds</td>
-                <td>Baths</td>
-                <td>Location (/10)</td>
-                <td>Size (/7)</td>
-                <td>Look (/5)</td>
-                <td>Yard (/4)</td>
-                <td>Kitchen (/5)</td>
-                <td>Affordability (/10)</td>
-                <td>Suite (/5)</td>
-                <td>Floors (/4)</td>
-                <td>Total Score</td>
-                <td>Graham's Comments</td>
-                <td>Eryn's Comments</td>
-                <td></td>
+                <th></th>
+                <th>Listing ID</th>
+                <th data-defaultsort='disabled'>Address</th>
+                <th>Price</th>
+                <th>Beds</th>
+                <th>Baths</th>
+                <th>Location (/10)</th>
+                <th>Size (/7)</th>
+                <th>Look (/5)</th>
+                <th>Yard (/4)</th>
+                <th>Kitchen (/5)</th>
+                <th>Affordability (/10)</th>
+                <th>Suite (/5)</th>
+                <th>Floors (/4)</th>
+                <th data-defaultsort="desc">Total Score</th>
+                <th data-defaultsort='disabled'>Graham's Comments</th>
+                <th data-defaultsort='disabled'>Eryn's Comments</th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
+        <tbody>
 
         <% listings.forEach(function(listing) { %>
-
             <tr>
                 <td><img class="listing_image" src="<%= listing.image_url %>" alt=""></td>
                 <td><a href="<%= listing.listing_url %>"><%= listing.listing_id %></a></td>
@@ -57,7 +61,7 @@
 
             </tr>
         <% }) %>
-
+        </tbody>
     </table>
 
     <h2>Bookmarklets</h2>
