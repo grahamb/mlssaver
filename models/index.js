@@ -5,7 +5,7 @@ var env = process.env.NODE_ENV || 'test';
 
 if (env === 'production') {
     config.production.username = process.env.mongouser;
-    config.production.pass = process.env.mongopass;
+    config.production.password = process.env.mongopass;
 }
 
 console.log(config[env]);
