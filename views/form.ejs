@@ -1,3 +1,13 @@
+<%
+  function generateSelect(max) {
+    var buf = [];
+    for (var i = max; i >= 0; i--) {
+        buf.push({"value":i,"text":i});
+    }
+    return buf;
+  }
+%>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -56,126 +66,60 @@
       <div class="form-group">
           <label for="rating_location" class="col-sm-2 control-label">Location</label>
           <div class="col-sm-10">
-            <select name="rating_location" id="rating_location" class="form-control">
-              <option>10</option>
-              <option>9</option>
-              <option>8</option>
-              <option>7</option>
-              <option>6</option>
-              <option>5</option>
-              <option>4</option>
-              <option>3</option>
-              <option>2</option>
-              <option>1</option>
-              <option>0</option>
-          </select>
+            <%- select_tag("rating_location", generateSelect(10), {"value": data.rating_location || 0, "name": "rating_location", "class": "form-control"}) %>
           </div>
       </div>
 
       <div class="form-group">
           <label for="rating_size" class="col-sm-2 control-label">Size</label>
           <div class="col-sm-10">
-            <select name="rating_size" id="rating_size" class="form-control">
-              <option>7</option>
-              <option>6</option>
-              <option>5</option>
-              <option>4</option>
-              <option>3</option>
-              <option>2</option>
-              <option>1</option>
-              <option>0</option>
-            </select>
+            <%- select_tag("rating_size", generateSelect(7), {"value": data.rating_size || 0, "name": "rating_size", "class": "form-control"}) %>
           </div>
       </div>
 
       <div class="form-group">
           <label for="rating_look" class="col-sm-2 control-label">Look</label>
           <div class="col-sm-10">
-            <select name="rating_look" id="rating_look" class="form-control">
-              <option>5</option>
-              <option>4</option>
-              <option>3</option>
-              <option>2</option>
-              <option>1</option>
-              <option>0</option>
-            </select>
+            <%- select_tag("rating_look", generateSelect(5), {"value": data.rating_look || 0, "name": "rating_look", "class": "form-control"}) %>
           </div>
       </div>
 
       <div class="form-group">
           <label for="rating_yard" class="col-sm-2 control-label">Yard</label>
           <div class="col-sm-10">
-            <select name="rating_yard" id="rating_yard" class="form-control">
-              <option>4</option>
-              <option>3</option>
-              <option>2</option>
-              <option>1</option>
-              <option>0</option>
-            </select>
+            <%- select_tag("rating_yard", generateSelect(4), {"value": data.rating_yard || 0, "name": "rating_yard", "class": "form-control"}) %>
           </div>
       </div>
 
       <div class="form-group">
           <label for="rating_kitchen" class="col-sm-2 control-label">Kitchen</label>
           <div class="col-sm-10">
-            <select name="rating_kitchen" id="rating_kitchen" class="form-control">
-              <option>5</option>
-              <option>4</option>
-              <option>3</option>
-              <option>2</option>
-              <option>1</option>
-              <option>0</option>
-            </select>
+            <%- select_tag("rating_kitchen", generateSelect(5), {"value": data.rating_kitchen || 0, "name": "rating_kitchen", "class": "form-control"}) %>
           </div>
       </div>
 
       <div class="form-group">
           <label for="rating_affordability" class="col-sm-2 control-label">Affordability</label>
           <div class="col-sm-10">
-            <select name="rating_affordability" id="rating_affordability" class="form-control">
-              <option>10</option>
-              <option>9</option>
-              <option>8</option>
-              <option>7</option>
-              <option>6</option>
-              <option>5</option>
-              <option>4</option>
-              <option>3</option>
-              <option>2</option>
-              <option>1</option>
-              <option>0</option>
-            </select>
+            <%- select_tag("rating_affordability", generateSelect(10), {"value": data.rating_affordability || 0, "name": "rating_affordability", "class": "form-control"}) %>
           </div>
       </div>
 
       <div class="form-group">
           <label for="rating_suite" class="col-sm-2 control-label">Suite</label>
           <div class="col-sm-10">
-            <select name="rating_suite" id="rating_suite" class="form-control">
-              <option>5</option>
-              <option>4</option>
-              <option>3</option>
-              <option>2</option>
-              <option>1</option>
-              <option>0</option>
-            </select>
+            <%- select_tag("rating_suite", generateSelect(5), {"value": data.rating_suite || 0, "name": "rating_suite", "class": "form-control"}) %>
           </div>
       </div>
 
       <div class="form-group">
           <label for="rating_floors" class="col-sm-2 control-label">Floors</label>
           <div class="col-sm-10">
-            <select name="rating_floors" id="rating_floors" class="form-control">
-              <option>4</option>
-              <option>3</option>
-              <option>2</option>
-              <option>1</option>
-              <option>0</option>
-            </select>
+            <%- select_tag("rating_floors", generateSelect(4), {"value": data.rating_floors || 0, "name": "rating_floors", "class": "form-control"}) %>
           </div>
       </div>
 
-      <% if (creating === true) { %>
+      <% if (mode === 'create') { %>
       <div class="form-group">
           <label for="comments_<%= data.person %>" class="col-sm-2 control-label">Comments</label>
           <div class="col-sm-10">
