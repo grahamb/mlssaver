@@ -17,12 +17,16 @@
     <link rel="stylesheet" href='/stylesheets/bootstrap-theme.min.css' />
   </head>
   <body>
+    <% if (mode === 'update') { %>
+    <h3><a href="/">&#8592 Back to List</a></h3>
+    <% } %>
 
     <form class="form-horizontal" role="form" action="/listing" method="POST">
 
       <input type="hidden" name="listing_url" id="listing_url" value="<%= data.listing_url || '' %>">
-
       <input type="hidden" name="image_url" id="image_url" value="<%= data.image_url || '' %>">
+      <input type="hidden" id="mode" name="mode" value="<%= mode %>">
+
 
       <h2>Property Info</h2>
       <div class="form-group">
@@ -145,9 +149,10 @@
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
           <button type="submit" class="btn btn-primary">Save</button>
-          <% if (creating === true) { %><button type="button" class="btn btn-danger" onclick="window.close()">Cancel</button> <% } %>
+          <% if (mode === 'create') { %><button type="button" class="btn btn-danger" onclick="window.close()">Cancel</button> <% } %>
         </div>
       </div>
     </form>
+
   </body>
 </html>
