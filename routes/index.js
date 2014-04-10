@@ -63,3 +63,29 @@ exports.get_listing = function(req, res) {
         }
     });
 };
+
+/*
+* DEL listing.
+*/
+exports.del_listing = function(req, res) {
+    Listing.findOne({ listing_id: req.param('id') }, function(err, listing) {
+        if (err) {
+            res.render('error', { error: err });
+            console.log(err);
+        } else {
+            if (!listing) {
+                res.send(404);
+            } else {
+                listing.remove(function(err) {
+                    if (err) {
+                        res.render('error', { error: err });
+                        console.log(err);
+                    } else {
+                        res.redirect('/');
+                    }
+                });
+            }
+        }
+    });
+};
+
