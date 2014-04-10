@@ -1,0 +1,12 @@
+{
+    "production": {
+        "hostname": "oceanic.mongohq.com",
+        "port": 10018,
+        "database": "mls"
+    },
+    "test": {
+        "hostname": "localhost",
+        "port": 27017,
+        "database": "mls"
+    }
+}
