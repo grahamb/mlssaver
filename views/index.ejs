@@ -29,6 +29,7 @@
                 <td>Total Score</td>
                 <td>Graham's Comments</td>
                 <td>Eryn's Comments</td>
+                <td></td>
             </tr>
         </thead>
 
@@ -52,8 +53,8 @@
                 <td><%= listing.total_score %></td>
                 <td><%= listing.comments_graham || '' %></td>
                 <td><%= listing.comments_eryn || '' %></td>
-                <td></td>
-                <td></td>
+                <td><a href="/<%= listing.listing_id %>" class="btn btn-primary" role="button">Edit</a></td>
+
             </tr>
         <% }) %>
 
