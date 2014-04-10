@@ -35,13 +35,21 @@ exports.saved = function(req, res){
 * POST listing.
 */
 exports.post_listing = function(req, res) {
-    var listing = new Listing(req.body);
-    listing.save(function(err) {
+    var data = req.body;
+    var mode = req.body.mode;
+    delete data.mode;
+
+    Listing.findOneAndUpdate( { listing_id: req.body.listing_id }, req.body, { upsert: true }, function(err, doc) {
         if (err) {
             res.render('error', { error: err });
             console.log(err);
         } else {
-            res.redirect('/saved');
+
+            if (mode === 'create') {
+                res.redirect('/saved');
+            } else if (mode === 'update') {
+                res.redirect('/' + data.listing_id);
+            }
         }
     });
 };
