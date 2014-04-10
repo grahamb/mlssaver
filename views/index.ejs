@@ -58,7 +58,12 @@
                 <td><%= listing.comments_graham || '' %></td>
                 <td><%= listing.comments_eryn || '' %></td>
                 <td><a href="/<%= listing.listing_id %>" class="btn btn-primary" role="button">Edit</a></td>
-
+                <td>
+                    <form action="/<%= listing.listing_id %>" method="POST">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
             </tr>
         <% }) %>
         </tbody>
