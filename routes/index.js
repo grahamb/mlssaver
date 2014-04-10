@@ -20,7 +20,16 @@ exports.index = function(req, res){
 */
 
 exports.form = function(req, res){
-    res.render('form', { mode: "create", title: 'Save Listing', data: req.query });
+    Listing.findOne({ listing_id: req.query.listing_id }, function(err, doc) {
+        if (err) {
+            res.render('error', { error: err });
+            console.log(err);
+        } else if (doc) {
+            res.render('error', {error: { code: 11000 }});
+        } else {
+            res.render('form', { mode: "create", title: 'Save Listing', data: req.query });
+        }
+    });
 };
 
 /*
