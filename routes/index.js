@@ -49,7 +49,7 @@ exports.post_listing = function(req, res) {
 /*
 * GET listing.
 */
-exports.listing = function(req, res) {
+exports.get_listing = function(req, res) {
     Listing.findOne({ listing_id: req.param('id') }, function(err, listing) {
         if (err) {
             res.render('error', { error: err });
