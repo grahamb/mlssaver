@@ -20,7 +20,7 @@ exports.index = function(req, res){
 */
 
 exports.form = function(req, res){
-    res.render('form', { creating: true, title: 'Save Listing', data: req.query });
+    res.render('form', { mode: "create", title: 'Save Listing', data: req.query });
 };
 
 /*
@@ -58,7 +58,7 @@ exports.get_listing = function(req, res) {
             if (!listing) {
                 res.send(404);
             } else {
-                res.render('form', { creating: false, title: 'View Listing', data: listing });
+                res.render('form', { mode: "update", title: 'View Listing', data: listing });
             }
         }
     });
