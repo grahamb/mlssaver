@@ -7,6 +7,8 @@ if (env === 'production') {
     config.production.username = process.env.mongouser;
     config.production.pass = process.env.mongopass;
 }
+
+console.log(config[env]);
 mongoose.connect(config[env].hostname, config[env].database, config[env].port, config[env]);
 
 module.exports.Listing = require('./listing');
